@@ -210,7 +210,7 @@ select.ap-kind {
 /* ---- the grid: the work, then the drawer column ---- */
 .ap-root {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) var(--doc-side-w, 300px);
+	grid-template-columns: minmax(0, 1fr) var(--doc-side-w, 480px);
 	gap: 0;
 	align-items: start;
 	min-height: calc(100vh - var(--ap-bar-h));
@@ -750,7 +750,7 @@ body.resizing-lint {
 	}
 	.doc-side-card {
 		position: static;
-		height: var(--doc-side-w, 300px);
+		height: var(--doc-side-w, 480px);
 		max-height: 85vh;
 		margin: 0;
 		padding: 12px 14px 14px;
@@ -784,7 +784,7 @@ body.resizing-lint {
 		margin-top: 6px;
 	}
 	.ap-root:not(.side-closed) .ap-work {
-		height: calc(100vh - var(--ap-bar-h) - var(--doc-side-w, 300px));
+		height: calc(100vh - var(--ap-bar-h) - var(--doc-side-w, 480px));
 	}
 	.doc-side-tab {
 		top: auto;

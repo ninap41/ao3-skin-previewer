@@ -15,7 +15,7 @@ export const ORIGIN = "https://archiveofourown.org";
 export const SCRAPED_PAGES = [
   ["home", "/"],
   ["media", "/media"],
-  ["dashboard", "/users/justthegatekeeper"],
+  ["dashboard", "/users/" + (process.env.AO3_USER || "your_username")],
   ["works", "/works"],
   ["works-search", "/works/search"],
   ["people-search", "/people/search"],

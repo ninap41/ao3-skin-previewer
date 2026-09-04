@@ -21,4 +21,4 @@ npm run build-codemirror # after changing scripts/codemirror-entry.js or bumping
 npm run scrape-pages     # re-scrape the site pages under public/ao3/html/
 ```
 
-The page carries a `{{SITE_NAME}}` token and a "← home" link; `server.js` fills them (`SITE_NAME` / `HOME_URL` env). An embedding app renders the page itself and mounts `public/` at its root.
+The page carries a `{{SITE_NAME}}` token; `server.js` fills it (`SITE_NAME` env). An embedding app renders the page itself and mounts `public/` at its root.

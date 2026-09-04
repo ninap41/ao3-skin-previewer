@@ -16,7 +16,7 @@
 // SIDE_MIN. (The app's own drawer caps at 560.)
 export const SIDE_MIN = 120
 export const SIDE_KEEP = 80
-export const SIDE_DEFAULT = 300
+export const SIDE_DEFAULT = 480
 export const sideMax = () => Math.max(SIDE_MIN, (globalThis.document?.defaultView?.innerWidth || globalThis.innerWidth || 1e6) - SIDE_KEEP)
 export const clampWidth = (px) => Math.min(sideMax(), Math.max(SIDE_MIN, Math.round(Number(px) || SIDE_DEFAULT)))
 
