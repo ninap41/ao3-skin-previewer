@@ -1,0 +1,22 @@
+{
+  "name": "ao3-skin-previewer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AO3 work/site skin previewer: real AO3 pages in a frame beside a CodeMirror CSS editor with AO3's own cleaner rules, an element inspector with breadcrumbs, whitelist completions, a colour picker, and a Work Content tab validated under AO3's HTML rules. No build step at runtime; the CodeMirror bundle is committed.",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "build-codemirror": "node scripts/build-codemirror.mjs",
+    "scrape-pages": "node scripts/scrape-pages.mjs"
+  },
+  "devDependencies": {
+    "@codemirror/lang-css": "^6.3.1",
+    "@codemirror/lang-html": "^6.4.12",
+    "@codemirror/lint": "^6.9.7",
+    "@codemirror/theme-one-dark": "^6.1.3",
+    "codemirror": "^6.0.2",
+    "esbuild": "^0.28.2",
+    "jsdom": "^29.1.1"
+  },
+  "license": "MIT"
+}
