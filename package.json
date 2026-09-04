@@ -5,7 +5,7 @@
   "description": "AO3 work/site skin previewer: real AO3 pages in a frame beside a CodeMirror CSS editor with AO3's own cleaner rules, an element inspector with breadcrumbs, whitelist completions, a colour picker, and a Work Content tab validated under AO3's HTML rules. No build step at runtime; the CodeMirror bundle is committed.",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test \"test/**/*.test.mjs\"",
+    "test": "node --test test/*.test.mjs",
     "build-codemirror": "node scripts/build-codemirror.mjs",
     "scrape-pages": "node scripts/scrape-pages.mjs"
   },

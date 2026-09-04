@@ -137,7 +137,7 @@ test("Cmd/Ctrl+S in the editor saves", async () => {
   const m = fresh();
   await m.ready;
   type(m, "#workskin p { color: green }");
-  m.editor.view.contentDOM.dispatchEvent(new window.KeyboardEvent("keydown", { key: "s", metaKey: true, bubbles: true, cancelable: true }));
+  m.editor.view.contentDOM.dispatchEvent(new window.KeyboardEvent("keydown", { key: "s", ctrlKey: true, bubbles: true, cancelable: true }));
   assert.equal(localStorage.getItem(KEY_CSS), "#workskin p { color: green }");
 });
 
