@@ -420,12 +420,13 @@ export function mountPreview(
     set(KEY_WORK, JSON.stringify(work));
     paintWorkDirty();
   });
-  $("apWorkReset")?.addEventListener("click", () => {
+  const resetWork = () => {
     set(KEY_WORK, null);
     work = cleanWork(WORK_DEFAULTS);
     buildWorkForm();
     workChanged();
-  });
+  };
+  $("apWorkReset")?.addEventListener("click", resetWork);
   buildWorkForm();
 
   // ---- the editor (CodeMirror) ----
@@ -554,7 +555,7 @@ export function mountPreview(
     const dirty = css.value !== savedCss();
     if (saveBtn) {
       saveBtn.disabled = !dirty;
-      saveBtn.textContent = dirty ? "Save CSS" : "Saved";
+      saveBtn.textContent = dirty ? "Save" : "Saved";
     }
   };
   const save = () => {
@@ -575,10 +576,12 @@ export function mountPreview(
     css.gotoLine(Number(row.dataset.line) || 1);
   });
 
+  // the bar's Reset forgets both the CSS and the work content
   $("apResetCss")?.addEventListener("click", () => {
     css.value = defaults.css;
     set(KEY_CSS, null);
     paintDirty();
+    resetWork();
     apply();
   });
 
