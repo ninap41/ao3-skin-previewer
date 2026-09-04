@@ -10,7 +10,7 @@ import { dirname, join, extname, normalize } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "public");
 const SITE_NAME = process.env.SITE_NAME || "AO3 skin previewer";
-const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".svg": "image/svg+xml", ".webp": "image/webp", ".woff2": "font/woff2" };
+const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".svg": "image/svg+xml", ".webp": "image/webp", ".woff2": "font/woff2", ".ico": "image/x-icon" };
 
 export function renderPage(html) {
   return html.replaceAll("{{SITE_NAME}}", SITE_NAME);
