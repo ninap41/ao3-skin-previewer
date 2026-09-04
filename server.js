@@ -1,5 +1,5 @@
 // A dependency-free dev server for the previewer: serves public/ at the root,
-// the page at / and /ao3-preview with its {{SITE_NAME}} token filled, and
+// the page at / and /ao3-preview with its {{SITE_NAME}} / {{SITE_URL}} tokens filled, and
 // /vendor/ cacheable. `npm start` → http://localhost:4173 (PORT overrides).
 // An app that embeds the previewer mounts public/ itself instead (Byler
 // Cowrite does, from this directory as a sibling).
@@ -10,10 +10,12 @@ import { dirname, join, extname, normalize } from "node:path";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "public");
 const SITE_NAME = process.env.SITE_NAME || "AO3 skin previewer";
+// the absolute origin link previews need for og:image; set it where the page is deployed
+const SITE_URL = (process.env.SITE_URL || `http://localhost:${process.env.PORT || 4173}`).replace(/\/$/, "");
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".svg": "image/svg+xml", ".webp": "image/webp", ".woff2": "font/woff2", ".ico": "image/x-icon" };
 
 export function renderPage(html) {
-  return html.replaceAll("{{SITE_NAME}}", SITE_NAME);
+  return html.replaceAll("{{SITE_NAME}}", SITE_NAME).replaceAll("{{SITE_URL}}", SITE_URL);
 }
 
 const server = createServer(async (req, res) => {

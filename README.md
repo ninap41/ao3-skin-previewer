@@ -21,4 +21,4 @@ npm run build-codemirror # after changing scripts/codemirror-entry.js or bumping
 npm run scrape-pages     # re-scrape the site pages under public/ao3/html/
 ```
 
-The page carries a `{{SITE_NAME}}` token; `server.js` fills it (`SITE_NAME` env). An embedding app renders the page itself and mounts `public/` at its root.
+The page carries `{{SITE_NAME}}` and `{{SITE_URL}}` tokens; `server.js` fills them (`SITE_NAME` / `SITE_URL` env). `SITE_URL` is the deployed origin, which the Open Graph tags need for the link-preview banner (`public/og-banner.png`, drawn from `scripts/assets/og-banner.svg`). An embedding app renders the page itself and mounts `public/` at its root.
