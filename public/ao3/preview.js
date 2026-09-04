@@ -555,7 +555,7 @@ export function mountPreview(
     const dirty = css.value !== savedCss();
     if (saveBtn) {
       saveBtn.disabled = !dirty;
-      saveBtn.textContent = dirty ? "Save" : "Saved";
+      saveBtn.textContent = dirty ? "Save CSS" : "Saved";
     }
   };
   const save = () => {
@@ -576,12 +576,10 @@ export function mountPreview(
     css.gotoLine(Number(row.dataset.line) || 1);
   });
 
-  // the bar's Reset forgets both the CSS and the work content
   $("apResetCss")?.addEventListener("click", () => {
     css.value = defaults.css;
     set(KEY_CSS, null);
     paintDirty();
-    resetWork();
     apply();
   });
 

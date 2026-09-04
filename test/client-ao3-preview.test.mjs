@@ -114,7 +114,7 @@ test("Save keeps the CSS in localStorage and it comes back on the next mount; Re
   assert.equal(saveBtn.textContent, "Saved");
   type(m, "#workskin p { color: blue }");
   assert.equal(saveBtn.disabled, false, "an edit lights Save");
-  assert.equal(saveBtn.textContent, "Save");
+  assert.equal(saveBtn.textContent, "Save CSS");
   saveBtn.click();
   assert.equal(localStorage.getItem(KEY_CSS), "#workskin p { color: blue }");
   assert.equal(saveBtn.disabled, true);
