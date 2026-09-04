@@ -56,7 +56,7 @@ export const WORK_DEFAULTS = {
 	characters: ["Mike Wheeler", "Will Byers", "Dustin Henderson", "Lucas Sinclair", "Robin Buckley"],
 	freeforms: ["Blood and Injury", "Past Violence", "Near Death Experiences", "Pre-Stranger Things 5", "Hurt/Comfort", "Happy Ending", "Ambiguous Relationships"],
 	title: "Bottled Up, Falling Down",
-	author: "Marigold_Static",
+	author: "Hollow_Cathedral",
 	summary:
 		"<p>He almost didn't see the bridge coming up. The clear drop off of the edge had all his muscles locking up. He slammed his foot on the brake and the beamer screeched as it swerved whipping back and forth at the sudden friction. Will was slammed into the console. He let out a cry and brought his hands up to his face.</p>\n<p>\"Fuck Mike! What happened?!\"</p>\n<p>or</p>\n<p>Mike developed a fear of heights from the quarry, and faces it.</p>",
 	notes: "",
