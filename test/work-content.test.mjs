@@ -20,7 +20,7 @@ test("every field has a boilerplate value of its kind, and the shipped page rend
   assert.ok(tokens.size >= 14, "the page carries the tokens: " + tokens.size);
   const out = W.renderWork(TPL, W.WORK_DEFAULTS);
   assert.equal((out.match(W.TOKEN_RE) || []).length, 0, "all filled");
-  assert.ok(out.includes("Bottled Up, Falling Down") && out.includes("Mike stood on the edge") && out.includes('href="/tags/Will%20Byers*s*Mike%20Wheeler/works"'));
+  assert.ok(out.includes("Lorem Ipsum Dolor Sit Amet") && out.includes("Lorem ipsum dolor sit amet") && out.includes('href="/tags/Will%20Byers*s*Mike%20Wheeler/works"'));
   assert.equal(W.renderWork("x {{NOPE}} y", {}), "x {{NOPE}} y", "an unknown token is left alone");
 });
 

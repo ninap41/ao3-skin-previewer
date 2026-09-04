@@ -707,18 +707,18 @@ test("the drawer's tabs: CSS | Work Content — the choice persists; the Work pa
     if (f.kind === "checks") assert.ok(form.querySelector(`input[name="${f.id}"]`), f.id);
     else assert.ok(form.querySelector(`[name="${f.id}"]`), f.id);
   }
-  assert.equal(form.querySelector('[name="title"]').value, "Bottled Up, Falling Down");
+  assert.equal(form.querySelector('[name="title"]').value, "Lorem Ipsum Dolor Sit Amet");
   assert.equal(form.querySelector('[name="rating"]').value, "Teen And Up Audiences");
   assert.equal(form.querySelector('[name="characters"]').value, "Mike Wheeler, Will Byers, Dustin Henderson, Lucas Sinclair, Robin Buckley");
   assert.ok(form.querySelector('input[name="categories"][value="M/M"]').checked);
   assert.equal(form.querySelectorAll(".ap-work-code .cm-editor").length, W.WORK_FIELDS.filter((f) => f.kind === "html").length, "every html field is a CodeMirror editor");
-  assert.match(m.workEditor("summary").value, /^<p>He almost didn't see/);
-  assert.match(m.workEditor("chapterText").value, /Mike stood on the edge/);
+  assert.match(m.workEditor("summary").value, /^<p>Lorem ipsum dolor sit amet/);
+  assert.match(m.workEditor("chapterText").value, /Lorem ipsum dolor sit amet/);
   assert.equal(document.getElementById("apWorkSave").textContent, "Saved");
   assert.equal(document.getElementById("apWorkSave").disabled, true);
   // the frame shows the rendered template — no token survives
   let fd = m.frameDoc();
-  assert.equal(fd.querySelector("h2.title").textContent.trim(), "Bottled Up, Falling Down");
+  assert.equal(fd.querySelector("h2.title").textContent.trim(), "Lorem Ipsum Dolor Sit Amet");
   assert.ok(!/\{\{[A-Z_]+\}\}/.test(fd.body.innerHTML), "no token left in the page");
   assert.equal(fd.querySelectorAll("dd.character.tags a.tag").length, 5);
   // edit the title → re-rendered
@@ -766,8 +766,8 @@ test("the drawer's tabs: CSS | Work Content — the choice persists; the Work pa
   document.getElementById("apWorkReset").click();
   await new Promise((r) => setTimeout(r, 200));
   assert.equal(localStorage.getItem(W.KEY_WORK), null);
-  assert.equal(m2.work.title, "Bottled Up, Falling Down");
-  assert.equal(m2.frameDoc().querySelector("h2.title").textContent.trim(), "Bottled Up, Falling Down");
+  assert.equal(m2.work.title, "Lorem Ipsum Dolor Sit Amet");
+  assert.equal(m2.frameDoc().querySelector("h2.title").textContent.trim(), "Lorem Ipsum Dolor Sit Amet");
   // on another page the values stay but the frame is that page, untouched
   await m2.setPage("tags");
   const before = m2.frameDoc().body.innerHTML;
