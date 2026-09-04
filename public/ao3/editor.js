@@ -224,6 +224,7 @@ export function createEditor(host, { value = "", dark = true, onChange, onSave }
 			EditorView.lineWrapping,
 			keymap.of([
 				{ key: "Mod-s", run: () => (onSave?.(), true) },
+				{ key: "Ctrl-s", run: () => (onSave?.(), true) },
 				...closeBracketsKeymap,
 				...completionKeymap,
 				...defaultKeymap,
