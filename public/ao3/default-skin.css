@@ -1,14 +1,11 @@
-/* Placeholder work skin. Replace this file with the real default.
-   Everything here passes AO3's cleaner — see ao3/README.md for the rules. */
-/* For when creator style is turned off */
-/* YOUR CUSTOM CSS GOES HERE */
-/* Placeholder work skin. Replace this file with the real default.
-   Everything here passes AO3's cleaner — see ao3/README.md for the rules. */
-/* For when creator style is turned off */
-/* YOUR CUSTOM CSS GOES HERE */
+/* 
+  Placeholder work skin. 
+  Thanks https://github.com/chameleonsd1sh for being a great reference. Check out they're skins
+  Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties
+  This is an example of a Site Skin, Workskins are limited to everything in #workskin elements
+*/
 #outer {
 	position: relative;
-
 	/* Optional: ensure outer has a defined size or content */
 }
 
