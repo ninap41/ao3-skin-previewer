@@ -214,6 +214,7 @@ select.ap-kind {
 	gap: 0;
 	align-items: start;
 	min-height: calc(100vh - var(--ap-bar-h));
+	min-height: calc(100dvh - var(--ap-bar-h));
 }
 .ap-root.side-expanded {
 	grid-template-columns: minmax(0, 1fr) min(70vw, 900px);
@@ -230,6 +231,13 @@ select.ap-kind {
 	position: relative;
 	min-width: 0;
 	height: calc(100vh - var(--ap-bar-h));
+	height: calc(100dvh - var(--ap-bar-h));
+	/* iOS Safari ignores an iframe's height and grows it to fit its document,
+	   then refuses to paint a layer that tall (the frame goes black). Scrolling
+	   the column instead keeps the page visible; on desktop the frame fills the
+	   column and scrolls inside itself as before. */
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 }
 /* The element hierarchy while inspecting — a strip pinned to the top of the
    preview column, in the parent page so no skin can restyle it. */
@@ -280,7 +288,10 @@ select.ap-kind {
 }
 .ap-frame {
 	display: block;
+	position: absolute;
+	inset: 0;
 	width: 100%;
+	min-width: 100%;
 	height: 100%;
 	border: 0;
 	background: #fff;
@@ -297,7 +308,9 @@ select.ap-kind {
 	position: sticky;
 	top: var(--doc-sticky);
 	height: calc(100vh - var(--doc-sticky));
+	height: calc(100dvh - var(--doc-sticky));
 	max-height: calc(100vh - var(--doc-sticky));
+	max-height: calc(100dvh - var(--doc-sticky));
 	display: flex;
 	flex-direction: column;
 	min-height: 0;
@@ -750,13 +763,15 @@ body.resizing-lint {
 	}
 	.doc-side-card {
 		position: static;
-		height: var(--doc-side-w, 480px);
+		height: min(var(--doc-side-w, 480px), 45dvh);
 		max-height: 85vh;
+		max-height: 85dvh;
 		margin: 0;
 		padding: 12px 14px 14px;
 	}
 	.side-expanded .doc-side-card {
 		height: 85vh;
+		height: 85dvh;
 	}
 	.doc-side-grip {
 		left: 0;
@@ -784,14 +799,40 @@ body.resizing-lint {
 		margin-top: 6px;
 	}
 	.ap-root:not(.side-closed) .ap-work {
-		height: calc(100vh - var(--ap-bar-h) - var(--doc-side-w, 480px));
+		height: calc(100dvh - var(--ap-bar-h) - min(var(--doc-side-w, 480px), 45dvh));
+	}
+	.side-expanded .ap-work {
+		height: calc(100dvh - var(--ap-bar-h) - 85dvh);
 	}
 	.doc-side-tab {
 		top: auto;
 		bottom: 16px;
 	}
+	/* the bar keeps its height and scrolls sideways rather than wrapping (the
+	   layout maths depend on --ap-bar-h) */
 	.ap-bar {
 		gap: 8px;
+		padding: 0 10px;
 		font-size: 0.78rem;
+		overflow-x: auto;
+		overflow-y: hidden;
+		white-space: nowrap;
+		scrollbar-width: none;
+	}
+	.ap-bar::-webkit-scrollbar {
+		display: none;
+	}
+	.ap-bar .ap-title {
+		flex: 0 0 auto;
+	}
+	.ap-bar .ap-acts {
+		flex: 0 0 auto;
+		gap: 6px;
+	}
+	.ap-bar .ap-kind-label {
+		display: none;
+	}
+	.ap-btn {
+		flex: 0 0 auto;
 	}
 }
